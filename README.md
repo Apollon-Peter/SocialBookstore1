@@ -10,4 +10,4 @@ The rest was developed by our team of 3:
   
 In order to execute the program:  
 * changes need to be made (most likely) in the application.properties file in order to set it up wtih mysql properly  
-* run the src\main\java\myy803\social_book_store\SocialbookstoreApplication.java file  
+* execute the src\main\java\myy803\social_book_store\SocialbookstoreApplication.java file  
