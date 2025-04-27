@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #292;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+
+    <div class="container">
+        <h2>User Profile</h2>
+        <form th:action="@{/saveProfile}" th:object="${user}" method="post">
+            <label for="full_name">Full Name:</label>
+            <input type="text" th:field="*{fullname}" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" th:field="*{age}" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" th:field="*{address}" required>
+            
+            <label for="phone">Phone number:</label>
+            <input type="text" th:field="*{phone}" required>
+            
+			<label for="favoriteAuthors">Favourite Authors:</label>
+			<input type="text" id="authors" name="authors" th:value="${authors}" required>
+
+			
+			<label for="favoriteCategories">Favourite Categories:</label>
+			<input type="text" id="categories" name="categories" th:value="${categories}" required>
+            
+            <button type="submit">Save Profile</button>
+        </form>
+    </div>
+
+     <footer style="background-color: #333; color: #fff; padding: 10px 0; text-align: center; position: fixed; bottom: 0; width: 100%;">
+        <p style="margin: 0;">Nikolaos Pittas | Georgios Mythis | Apollonas Petros Kallipolitis</p>
+     </footer>
+</body>
+</html>

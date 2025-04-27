@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 40%;
+    		margin-top: 5%;
+            background-color: #fff;
+            padding: 70px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn-group .btn {
+            margin: 0 10px;
+        }
+
+        .logged-in-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .user-dashboard, .admin-dashboard {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Homepage</h2>
+        <hr>
+
+        <div th:if="${not #authorization.expression('isAuthenticated()')}">
+            <div class="btn-group">
+                <a href="/login" class="btn btn-primary btn-lg" role="button">Login</a>
+                <a href="/register" class="btn btn-secondary btn-lg" role="button">Register</a>
+            </div>
+        </div>
+
+        <div th:if="${#authorization.expression('isAuthenticated()')}">
+            <div class="logged-in-info">
+                <h4>Logged in as: <span th:text="${#authentication.name}"></span></h4>
+                <h5>Roles: <span th:text="${#authentication.authorities}"></span></h5>
+            </div>
+            <hr>
+
+            <div th:if="${#authorization.expression('hasRole(''USER'')}">
+                <div class="user-dashboard">
+                    <a href="/user/dashboard" class="btn btn-primary btn-lg" role="button">User Dashboard</a>
+                    <a href="/logout" class="btn btn-danger btn-lg" role="button">Logout</a>
+                </div>
+            </div>
+
+            <div th:if="${#authorization.expression('hasRole(''ADMIN'')}">
+                <div class="admin-dashboard">
+                    <a href="/admin/dashboard" class="btn btn-primary btn-lg" role="button">Admin Dashboard</a>
+                    <a href="/logout" class="btn btn-danger btn-lg" role="button">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

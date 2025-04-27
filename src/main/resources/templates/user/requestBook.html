@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Offers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .book-offer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .book-box {
+            width: 30%;
+            background-color: #fff;
+            padding: 90px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .book-box h3 {
+            margin-top: 0;
+        }
+        .book-box p {
+            margin: 5px 0;
+        }
+        .request-button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: #292;
+            color: #fff;
+            width: 100%; 
+            height: 10%; 
+            padding: 10px 30px; 
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Request a Book</h1>
+    </header>
+
+    <div class="container">
+        <div class="book-offer">
+            <div th:each="book : ${books}" class="book-box">
+                <h3 th:text="${book.title}"></h3>
+                <p><strong>Description:</strong> <span th:text="${book.description}"></span></p>
+                
+                <p><strong>Author(s):</strong> 
+                    <div th:each="author : ${book.authors}">
+                         <span th:text="${author.name}"></span>
+                    </div>
+                </p>
+                
+                <p><strong>Category:</strong> <span th:text="${book.bookCategory.name}"></span></p>
+                
+				<form th:action="@{/bookRequested}" method="get">
+					<input type="hidden" name="bookId" th:value="${book.bookId}">
+                	<button class="request-button">Request this Book</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <footer style="background-color: #333; color: #fff; padding: 10px 0; text-align: center; position: fixed; bottom: 0; width: 100%;">
+        <p style="margin: 0;">Nikolaos Pittas | Georgios Mythis | Apollonas Petros Kallipolitis</p>
+    </footer>
+</body>
+</html>

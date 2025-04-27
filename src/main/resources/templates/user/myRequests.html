@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Requests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .delete-button {
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 5px 10px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+        }
+        th {
+            background-color: #555;
+            color: #fff;
+        }
+        .user-container {
+            position: relative;
+        }
+        .request-button {
+            background-color: #292;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Requests</h1>
+    </header>
+
+    <div th:if="${not #lists.isEmpty(books)}" th:each="book : ${books}">
+        <div class="container">
+            <h1>
+                <span th:text="${book.title}"></span>
+                <form th:action="@{/requestDeleted}" method="post">
+                    <input type="hidden" name="bookId" th:value="${book.bookId}">
+                    <button class="delete-button" onclick="if (!(confirm('Are you sure you want to cancel this request?'))) return false">Cancel this request</button>
+                </form>
+            </h1>
+        </div>
+    </div>
+    <div th:unless="${not #lists.isEmpty(books)}" style="text-align: center;">
+        <p style="font-size: 24px; color: red;">You have not made any requests yet.</p>
+    </div>
+
+    <footer style="background-color: #333; color: #fff; padding: 10px 0; text-align: center; position: fixed; bottom: 0; width: 100%;">
+        <p style="margin: 0;">Nikolaos Pittas | Georgios Mythis | Apollonas Petros Kallipolitis</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <package id="1" language="java" name="myy803.social_book_store" project="socialbookstore" 
+    file="/socialbookstore/src/main/java/myy803/social_book_store" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="333" y="58"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="2" language="java" name="myy803.social_book_store.config" project="socialbookstore" 
+    file="/socialbookstore/src/main/java/myy803/social_book_store/config" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="681" y="145"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="3" language="java" name="myy803.social_book_store.controller" project="socialbookstore" 
+    file="/socialbookstore/src/main/java/myy803/social_book_store/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="204" y="141"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="4" language="java" name="myy803.social_book_store.dao" project="socialbookstore" 
+    file="/socialbookstore/src/main/java/myy803/social_book_store/dao" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="371" y="328"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="5" language="java" name="myy803.social_book_store.model" project="socialbookstore" 
+    file="/socialbookstore/src/main/java/myy803/social_book_store/model" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="197" y="446"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="6" language="java" name="myy803.social_book_store.service" project="socialbookstore" 
+    file="/socialbookstore/src/main/java/myy803/social_book_store/service" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="803" y="337"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <dependency id="7">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="8">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="9">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="10">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="11">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="12">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="13">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="14">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="15">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="16">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="17">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
